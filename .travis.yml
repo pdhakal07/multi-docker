@@ -18,7 +18,7 @@ services:
     #log in to the docker CLI 
     - echo"$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password--stdin
     
-    #take those image and push it to the docker hub 
+    #take those image and push it to the docker hub .
     - docker push pdhakal07/multi-client
     - docker push pdhakal07/multi-nginx
     - docker push pdhakal07/multi-server
