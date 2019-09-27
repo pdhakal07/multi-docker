@@ -4,16 +4,16 @@ services:
   -docker
 
 before_install:
-  - docker build -t pdhakal/react-test -f ./client/dockerfile.dev ./client
+  - docker build -t pradeepdhakal/react-test -f ./client/dockerfile.dev ./client
 
 script:
-  - docker run -e CI=true pdhakal/react-test npm test
+  - docker run -e CI=true pradeepdhakal/react-test npm test
 
 after_success:
-  - docker build -t pdhakal/multi-client ./client
-  - docker build -t pdhakal/multi-nginx ./nginx
-  - docker build -t pdhakal/multi-server ./server
-  - docker build -t pdhakal/multi-worker ./worker
+  - docker build -t pradeepdhakal/multi-client ./client
+  - docker build -t pradeepdhakal/multi-nginx ./nginx
+  - docker build -t pradeepdhakal/multi-server ./server
+  - docker build -t pradeepdhakal/multi-worker ./worker
 
   #log in to the docker CLI 
   - echo"$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password--stdin
