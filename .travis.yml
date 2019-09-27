@@ -16,7 +16,7 @@ after_success:
   - docker build -t pdhakal/multi-worker ./worker
 
   #log in to the docker CLI 
-  - echo"$DOCKER_PASSWORD" | docker login -u "DOCKER_ID" --password--stdin
+  - echo "$DOCKER_PASSWORD" | docker login -u "$DOCKER_ID" --password-stdin
   
   #take those image and push it to the docker hub .
   - docker push pdhakal/multi-client
