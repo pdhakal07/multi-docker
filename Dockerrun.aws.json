@@ -1,0 +1,40 @@
+{
+    "AWSEBDockerrunVersion": 2,
+    "containerDefinitions": [
+        {
+            "name": "client",
+            "image": "pdhakal/multi-client",
+            "hostname": "client",
+            "essential": false
+        },
+
+        {
+            "name": "server",
+            "image": "pdhakal/multi-server",
+            "hostname": "api",
+            "essential": false
+
+        },
+
+        {
+            "name": "worker",
+            "image": "pdhakal/multi-worker",
+            "hostname": "worker",
+            "essential": false
+        },
+
+        {
+            "name": "nginx",
+            "image": "pdhakal/multi-nginx",
+            "essential": true,
+            "portMappings": [
+                {
+                    "hostPort": 80,
+                    "containerPort": 80
+                }
+            ],
+            "links": ["client", "server"]
+
+        }
+    ]
+}
